@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable'
 import {
-  SET_LOGIN
+  SET_LOGIN,
+  SET_TXT
 } from './actionTypes'
 const defaultStates = fromJS({
   username: '',
@@ -12,6 +13,9 @@ const getLogin = (state = defaultStates, action) => {
     case SET_LOGIN:
 
       break;
+      
+    case SET_TXT:
+      return state.set(action.key,action.value)
 
     default:
       return state
