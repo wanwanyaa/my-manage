@@ -1,12 +1,12 @@
 import React from 'react';
 
-class Jishu extends React.Component {
+class Zhoubao extends React.Component {
   render () {
     return (
       <div>
-        hello
+        Zhoubao
       </div>
     )
   }
 }
-export default Jishu
+export default Zhoubao

@@ -2,6 +2,15 @@ import React from 'react';
 import { Layout, Menu, Icon, Breadcrumb  } from 'antd';
 import './index.less'
 import Jishu from './jishu'
+import Evaluate from './evaluate'
+import Evaluation from './evaluation'
+import My from './my'
+import MyTest from './my-test'
+import Tousu from './tousu'
+import Vip from './VIP'
+import Xiangmu from './xiangmu'
+import Zhoubao from './zhoubao'
+import Money from './money'
 import { Route, Switch } from 'react-router-dom' ;
 
 const { Header, Sider, Content } = Layout;
@@ -74,6 +83,15 @@ class Home extends React.Component {
           >
             <Switch>
               <Route path="/home/jishu" component={ Jishu }></Route>
+              <Route path="/home/evaluate" component={ Evaluate }></Route>
+              <Route path="/home/evaluation" component={ Evaluation }></Route>
+              <Route path="/home/my" component={ My }></Route>
+              <Route path="/home/my-test" component={ MyTest }></Route>
+              <Route path="/home/tousu" component={ Tousu }></Route>
+              <Route path="/home/vip" component={ Vip }></Route>
+              <Route path="/home/xiangmu" component={ Xiangmu }></Route>
+              <Route path="/home/zhoubao" component={ Zhoubao }></Route>
+              <Route path="/home/money" component={ Money }></Route>
             </Switch>
           </Content>
         </Layout>
