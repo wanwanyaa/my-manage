@@ -6,7 +6,6 @@ const withCan = (Component) => {
     render() {
       return(
         <React.Fragment>
-        <script url="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"/>
         <Component></Component>
       </React.Fragment>
       )
