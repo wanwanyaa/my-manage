@@ -11,6 +11,9 @@ import Vip from './VIP'
 import Xiangmu from './xiangmu'
 import Zhoubao from './zhoubao'
 import Money from './money'
+import Studentleave from './studentleave'
+import Schoolviolation from './schoolviolation'
+import Modify from './modify'
 import { Route, Switch } from 'react-router-dom' ;
 
 const { Header, Sider, Content } = Layout;
@@ -92,6 +95,9 @@ class Home extends React.Component {
               <Route path="/home/xiangmu" component={ Xiangmu }></Route>
               <Route path="/home/zhoubao" component={ Zhoubao }></Route>
               <Route path="/home/money" component={ Money }></Route>
+              <Route path="/home/studentleave" component= { Studentleave }></Route>
+              <Route path="/home/schoolviolation" component= { Schoolviolation }></Route>
+              <Route path="/home/modify" component= { Modify }></Route>
             </Switch>
           </Content>
         </Layout>
