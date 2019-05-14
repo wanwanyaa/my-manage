@@ -11,7 +11,14 @@ import Vip from './VIP'
 import Xiangmu from './xiangmu'
 import Zhoubao from './zhoubao'
 import Money from './money'
+<<<<<<< HEAD
 import { Route, Switch } from 'react-router-dom';
+=======
+import Studentleave from './studentleave'
+import Schoolviolation from './schoolviolation'
+import Modify from './modify'
+import { Route, Switch } from 'react-router-dom' ;
+>>>>>>> feature/ywt-base
 
 const { Header, Sider, Content } = Layout;
 const menu = (
@@ -92,6 +99,7 @@ class Home extends React.Component {
             margin: '24px 16px', padding: 24, background: '#fff'}}
           >
             <Switch>
+<<<<<<< HEAD
               <Route path="/home/tousu/1" component={ Tousu }></Route>
               <Route path="/home/jishu/2" component={ Jishu }></Route>
               <Route path="/home/xiangmu/3" component={ Xiangmu }></Route>
@@ -102,6 +110,21 @@ class Home extends React.Component {
               <Route path="/home/my-test/8" component={ MyTest }></Route>
               <Route path="/home/evaluate/9" component={ Evaluate }></Route>
               <Route path="/home/evaluation/10" component={ Evaluation }></Route>
+=======
+              <Route path="/home/jishu" component={ Jishu }></Route>
+              <Route path="/home/evaluate" component={ Evaluate }></Route>
+              <Route path="/home/evaluation" component={ Evaluation }></Route>
+              <Route path="/home/my" component={ My }></Route>
+              <Route path="/home/my-test" component={ MyTest }></Route>
+              <Route path="/home/tousu" component={ Tousu }></Route>
+              <Route path="/home/vip" component={ Vip }></Route>
+              <Route path="/home/xiangmu" component={ Xiangmu }></Route>
+              <Route path="/home/zhoubao" component={ Zhoubao }></Route>
+              <Route path="/home/money" component={ Money }></Route>
+              <Route path="/home/studentleave" component= { Studentleave }></Route>
+              <Route path="/home/schoolviolation" component= { Schoolviolation }></Route>
+              <Route path="/home/modify" component= { Modify }></Route>
+>>>>>>> feature/ywt-base
             </Switch>
           </Content>
         </Layout>
