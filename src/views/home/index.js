@@ -78,8 +78,7 @@ class Home extends React.Component {
             <Breadcrumb.Item>An Application</Breadcrumb.Item>
           </Breadcrumb>
           <Content style={{
-            margin: '24px 16px', padding: 24, background: '#fff', height: '100%',
-          }}
+            margin: '24px 16px', padding: 24, background: '#fff'}}
           >
             <Switch>
               <Route path="/home/jishu" component={ Jishu }></Route>
