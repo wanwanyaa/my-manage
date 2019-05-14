@@ -43,6 +43,13 @@ class My extends React.Component {
         dataIndex: 'open',
       },
     ];
+    const newDate =[
+      {
+        mc:'扣丁学堂',
+        main:'扣丁学堂大量免费线上视频，不定期更新，为您规划职业路线。官方网站: http://www.codingke.com',
+        open:'您还未开通扣丁学堂'
+      }
+    ];
     const data = [
       {
         key: '1',
@@ -50,10 +57,7 @@ class My extends React.Component {
         date: '23:13',
         address: 'New York No. 1 Lake Park',
         talk:'王老师',
-        content:'我怀疑你在开车',
-        mc:'扣丁学堂',
-        main:'扣丁学堂大量免费线上视频，不定期更新，为您规划职业路线。官方网站: http://www.codingke.com',
-        open:'您还未开通扣丁学堂'
+        content:'我怀疑你在开车'
       },
       {
         key: '2',
@@ -156,7 +160,7 @@ class My extends React.Component {
                   <h4 style={{ marginTop:20,fontWeight:700 }}>【班主任寄语】</h4>
                   <Table columns={tea} dataSource={data} pagination={ false } Bordered={ true } />
                   <h4 style={{ marginTop:20,fontWeight:700 }}>【千锋其他会员开通】</h4>
-                  <Table columns={vip} dataSource={data} pagination={ false }  Bordered={ true }/>
+                  <Table columns={vip} dataSource={newDate} pagination={ false }  Bordered={ true }/>
                 </div>
                 </div>
               </div>

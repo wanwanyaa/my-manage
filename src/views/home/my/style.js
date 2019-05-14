@@ -15,7 +15,6 @@ export const Mydata = styled.div`
     width:100%;
     height:100%;
     .col{
-      float: left;
       position: relative;
       min-height: 1px;
       width:100%;
@@ -25,11 +24,8 @@ export const Mydata = styled.div`
         border-bottom: 1px dotted #e2e2e2;
         padding-bottom: 16px;
         /* padding-top: 7px; */
-        width:1246px;
         height:42px;
         box-sizing: border-box;
-
-
         .btn {
           float: right;
           margin-right: 23px;
@@ -38,7 +34,6 @@ export const Mydata = styled.div`
         }
       }
       .page-body {
-        width:1246px;
         min-height:0;
         height:400px;
         .show {

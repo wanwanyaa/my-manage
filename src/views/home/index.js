@@ -91,24 +91,24 @@ class Home extends React.Component {
             </Breadcrumb.Item>
             <Breadcrumb.Item>An Application</Breadcrumb.Item>
           </Breadcrumb>
-          <Content style={{
-            margin: '24px 16px', padding: 24, background: '#fff'}}
-          >
-            <Switch>
-              <Route path="/home/tousu/1" component={ Tousu }></Route>
-              <Route path="/home/jishu/2" component={ Jishu }></Route>
-              <Route path="/home/xiangmu/3" component={ Xiangmu }></Route>
-              <Route path="/home/vip/4" component={ Vip }></Route>
-              <Route path="/home/zhoubao/5" component={ Zhoubao }></Route>
-              <Route path="/home/my/6" component={ My }></Route>
-              <Route path="/home/money/7" component={ Money }></Route>
-              <Route path="/home/my-test/8" component={ MyTest }></Route>
-              <Route path="/home/evaluate/9" component={ Evaluate }></Route>
-              <Route path="/home/evaluation/10" component={ Evaluation }></Route>
-              <Route path="/home/studentleave/11" component={ Studentleave }></Route>
-              <Route path="/home/schoolviolation/12" component={ Schoolviolation }></Route>
-              <Route path="/home/modify/13" component={ Modify }></Route>
-            </Switch>
+          <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+            <div style={{ padding: 24, background: '#fff'}}>
+              <Switch>
+                <Route path="/home/tousu/1" component={ Tousu }></Route>
+                <Route path="/home/jishu/2" component={ Jishu }></Route>
+                <Route path="/home/xiangmu/3" component={ Xiangmu }></Route>
+                <Route path="/home/vip/4" component={ Vip }></Route>
+                <Route path="/home/zhoubao/5" component={ Zhoubao }></Route>
+                <Route path="/home/my/6" component={ My }></Route>
+                <Route path="/home/money/7" component={ Money }></Route>
+                <Route path="/home/my-test/8" component={ MyTest }></Route>
+                <Route path="/home/evaluate/9" component={ Evaluate }></Route>
+                <Route path="/home/evaluation/10" component={ Evaluation }></Route>
+                <Route path="/home/studentleave/11" component={ Studentleave }></Route>
+                <Route path="/home/schoolviolation/12" component={ Schoolviolation }></Route>
+                <Route path="/home/modify/13" component={ Modify }></Route>
+              </Switch>
+            </div>
           </Content>
         </Layout>
       </Layout>
