@@ -11,14 +11,10 @@ import Vip from './VIP'
 import Xiangmu from './xiangmu'
 import Zhoubao from './zhoubao'
 import Money from './money'
-<<<<<<< HEAD
-import { Route, Switch } from 'react-router-dom';
-=======
 import Studentleave from './studentleave'
 import Schoolviolation from './schoolviolation'
 import Modify from './modify'
 import { Route, Switch } from 'react-router-dom' ;
->>>>>>> feature/ywt-base
 
 const { Header, Sider, Content } = Layout;
 const menu = (
@@ -72,8 +68,8 @@ class Home extends React.Component {
               <Menu.Item key="10" name="evaluation" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>教学测评</Menu.Item>
             </Menu.SubMenu>
             <Menu.SubMenu key="sub2" title={<span><Icon type="contacts" /><span>学员考勤</span></span>}>
-              <Menu.Item key="11" name="tousu" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员请假</Menu.Item>
-              <Menu.Item key="12" name="tousu" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员违纪</Menu.Item>
+              <Menu.Item key="11" name="studentleave" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员请假</Menu.Item>
+              <Menu.Item key="12" name="schoolviolation" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员违纪</Menu.Item>
             </Menu.SubMenu>
           </Menu>
         </Sider>
@@ -99,7 +95,6 @@ class Home extends React.Component {
             margin: '24px 16px', padding: 24, background: '#fff'}}
           >
             <Switch>
-<<<<<<< HEAD
               <Route path="/home/tousu/1" component={ Tousu }></Route>
               <Route path="/home/jishu/2" component={ Jishu }></Route>
               <Route path="/home/xiangmu/3" component={ Xiangmu }></Route>
@@ -110,21 +105,9 @@ class Home extends React.Component {
               <Route path="/home/my-test/8" component={ MyTest }></Route>
               <Route path="/home/evaluate/9" component={ Evaluate }></Route>
               <Route path="/home/evaluation/10" component={ Evaluation }></Route>
-=======
-              <Route path="/home/jishu" component={ Jishu }></Route>
-              <Route path="/home/evaluate" component={ Evaluate }></Route>
-              <Route path="/home/evaluation" component={ Evaluation }></Route>
-              <Route path="/home/my" component={ My }></Route>
-              <Route path="/home/my-test" component={ MyTest }></Route>
-              <Route path="/home/tousu" component={ Tousu }></Route>
-              <Route path="/home/vip" component={ Vip }></Route>
-              <Route path="/home/xiangmu" component={ Xiangmu }></Route>
-              <Route path="/home/zhoubao" component={ Zhoubao }></Route>
-              <Route path="/home/money" component={ Money }></Route>
-              <Route path="/home/studentleave" component= { Studentleave }></Route>
-              <Route path="/home/schoolviolation" component= { Schoolviolation }></Route>
-              <Route path="/home/modify" component= { Modify }></Route>
->>>>>>> feature/ywt-base
+              <Route path="/home/studentleave/11" component={ Studentleave }></Route>
+              <Route path="/home/schoolviolation/12" component={ Schoolviolation }></Route>
+              <Route path="/home/modify/13" component={ Modify }></Route>
             </Switch>
           </Content>
         </Layout>
