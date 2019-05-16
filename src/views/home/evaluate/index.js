@@ -58,7 +58,7 @@ class Evaluate extends React.Component {
             您的满意是对我们最好的评价，您的批评是给我们最大的改进动力，欢迎同学对千锋提出宝贵的批评和建议。
           </div>
         </PageHeader>
-        <Table dataSource={dataSource} columns={columns} size="small" pagination={false} />
+        <Table dataSource={dataSource} columns={columns} size="small" pagination={false} bordered />
       </div>
       //   <TableRaw>
       //     <table>
