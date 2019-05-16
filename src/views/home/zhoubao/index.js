@@ -1,47 +1,58 @@
 import React from 'react';
-import { Input, Button, Table } from 'antd';
+import { Input, Button, Table, message } from 'antd';
 import './index.less';
-
+import { connect } from 'react-redux';
+import { InputChange,Areachange,Add } from './store/createAction'
 const columns = [
   {
     title: '姓名',
     dataIndex: 'name'
   },
   {
-    title: '问题理由',
-    className: 'column-money',
-    dataIndex: 'money',
+    title: '周报标题',
+    dataIndex: 'zb_title',
+  },
+  {
+    title: '周报内容',
+    dataIndex: 'zb_content',
   },
   {
     title: '创建时间',
-    dataIndex: 'address',
-  },
-  {
-    title: '回复',
-    dataIndex: 'p1',
+    dataIndex: 'zb_time',
   }
 ];
+const mapStateToProps = (state) => {
+  return {
+    data : state.getIn(['zhoubao','data']).toJS(),
+    title_value: state.getIn(['zhoubao','title_value']),
+    textArea_value: state.getIn(['zhoubao','textArea_value']),
+  }
+}
+const mapDispatchToProps = (dispatch) =>{
+    return {
+      changetitle(e) {
+        dispatch(InputChange(e.target.value))
+    },
+      changetextArea(e){
+        dispatch(Areachange(e.target.value))
+    },
+    add(x,a){
 
-const data = [
-  // {
-  //   key: '1',
-  //   name: 'John Brown',
-  //   money: '￥300,000.00',
-  // },
-  // {
-  //   key: '2',
-  //   name: 'Jim Green',
-  //   money: '￥1,256,000.00',
-  // },
-  // {
-  //   key: '3',
-  //   name: 'Joe Black',
-  //   money: '￥120,000.00',
-  // },
-];
-
+      if(x && a) {
+        dispatch(Add())
+      }
+      else{
+        message.error('This is a message of error')
+      }
+      console.log(x)
+    },
+  }
+}
 class Zhoubao extends React.Component {
   render () {
+    console.log(this.props)
+    const { changetitle,changetextArea,add,title_value,textArea_value } = this.props;
+    // console.log(this)
     return (
       <div className="zb-box">
         <div className="zb-con">
@@ -51,20 +62,23 @@ class Zhoubao extends React.Component {
           </p>
           <p className="p-one">
             <label htmlFor="">周报标题:</label>
-            <Input placeholder="请输入周报标题" style={{ width:200, marginLeft:10 }}  ></Input>
+            <Input placeholder="请输入周报标题" style={{ width:200, marginLeft:10 }} onChange={ changetitle } value={ this.props.title_value }></Input>
           </p>
           <p className="p-two">
             <label htmlFor="">周报内容:</label>
-            <Input.TextArea placeholder="请输入周报内容" rows={7} style={{ width:500, marginLeft:10 }}></Input.TextArea>
+            <Input.TextArea placeholder="请输入周报内容" rows={7} style={{ width:500, marginLeft:10 }} onChange={ changetextArea } value={ this.props.textArea_value } ></Input.TextArea>
           </p>
           <p className="p-three">
-            <Button type="primary">提交</Button>
+          {
+              console.log(title_value)
+          }
+            <Button type="primary" onClick={ ()=>{add(title_value,textArea_value)} }>提交</Button>
             <Button type="danger">返回</Button>
           </p>
           <hr/>
           <Table
             columns={ columns }
-            dataSource={ data }
+            dataSource={ this.props.data }
             bordered
             style={{ marginTop:25 }}
           />
@@ -73,4 +87,4 @@ class Zhoubao extends React.Component {
     )
   }
 }
-export default Zhoubao
+export default connect(mapStateToProps,mapDispatchToProps)(Zhoubao)
