@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   PageHeader,
-  
+
 } from './style';
 import {Table} from 'antd'
 class Evaluate extends React.Component {
@@ -15,7 +15,7 @@ class Evaluate extends React.Component {
       headmaster: '肖瑶',
       employmentteacher:'冉丽萍',
     } ];
-    
+
     const columns = [{
       title: '测评开始时间',
       dataIndex: 'starttime',
@@ -45,7 +45,7 @@ class Evaluate extends React.Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          <a href="javascript:;">开始测评 {record.name}</a>
+          开始测评 {record.name}
         </span>
       ),
     }];

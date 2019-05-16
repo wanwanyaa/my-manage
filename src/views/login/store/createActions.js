@@ -1,5 +1,5 @@
 import {
-  SET_LOGIN,
+  // SET_LOGIN,
   SET_TXT
 } from './actionTypes'
 import http from '@/utils/http'

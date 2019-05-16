@@ -14,7 +14,8 @@ import Money from './money'
 import Studentleave from './studentleave'
 import Schoolviolation from './schoolviolation'
 import Modify from './modify'
-import { Route, Switch } from 'react-router-dom' ;
+import Student from './student'
+import { Route, Switch, Redirect, Link } from 'react-router-dom' ;
 
 const { Header, Sider, Content } = Layout;
 const menu = (
@@ -34,6 +35,115 @@ const menu = (
 class Home extends React.Component {
   state = {
     collapsed: false,
+    mb:{
+      tousu:'匿名投诉',
+      jishu:'技术问题',
+      xiangmu:'项目上传',
+      vip:'VIP',
+      zhoubao:'学员周报',
+      my:'我的资料',
+      money:'交费明细',
+      my_test:'参加考试',
+      evaluate:'学员评价',
+      evaluation:'教学测评',
+      student:'学生管理',
+      studentAdd:'新增学生',
+      studentleave:'学员请假',
+      schoolviolation:'学员违纪'
+    },
+    data: [
+      {
+        key:'sub1',
+        icon:'user',
+        content:'学员后台',
+        data:[
+          {
+            key:'1',
+            name:'tousu',
+            content: '匿名投诉'
+          },
+          {
+            key:'2',
+            name:'jishu',
+            content: '技术问题'
+          },
+          {
+            key:'3',
+            name:'xiangmu',
+            content: '项目上传'
+          },
+          {
+            key:'4',
+            name:'vip',
+            content: 'VIP'
+          },
+          {
+            key:'5',
+            name:'zhoubao',
+            content: '学员周报'
+          },
+          {
+            key:'6',
+            name:'my',
+            content: '我的资料'
+          },
+          {
+            key:'7',
+            name:'money',
+            content: '交费明细'
+          },
+          {
+            key:'8',
+            name:'my_test',
+            content: '参加考试'
+          },
+          {
+            key:'9',
+            name:'evaluate',
+            content: '学员评价'
+          },
+          {
+            key:'10',
+            name:'evaluation',
+            content: '教学测评'
+          }
+        ]
+      },
+      {
+        key:'sub2',
+        icon:'contacts',
+        content:'学生管理',
+        data:[
+          {
+            key: '11',
+            name: 'student',
+            content: '查询学员'
+          },
+          {
+            key:'12',
+            name: 'studentAdd',
+            content: '查询学员'
+          }
+        ]
+      },
+      {
+        key:'sub3',
+        icon:'contacts',
+        content:'学员考勤',
+        data:[
+          {
+            key: '13',
+            name: 'studentleave',
+            content: '学员请假'
+          },
+          {
+            key:'14',
+            name: 'schoolviolation',
+            content: '学员违纪'
+          }
+        ]
+      }
+    ]
   };
 
   toggle = () => {
@@ -43,6 +153,7 @@ class Home extends React.Component {
   }
 
   render() {
+    let a = this.props.location.pathname.substr(6)
     return (
       <Layout>
         <Sider
@@ -54,23 +165,27 @@ class Home extends React.Component {
           }}
         >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={[this.props.location.pathname.substr(-1)]} defaultOpenKeys={['sub1']}>
-            <Menu.SubMenu ref="xueyuan" name="学员后台" key="sub1" title={<span><Icon type="user" /><span>学员后台</span></span>}>
-              <Menu.Item key="1" name="tousu" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } } >匿名投诉</Menu.Item>
-              <Menu.Item key="2" name="jishu" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>技术问题</Menu.Item>
-              <Menu.Item key="3" name="xiangmu" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>项目上传</Menu.Item>
-              <Menu.Item key="4" name="vip" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>VIP</Menu.Item>
-              <Menu.Item key="5" name="zhoubao" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员周报</Menu.Item>
-              <Menu.Item key="6" name="my" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>我的资料</Menu.Item>
-              <Menu.Item key="7" name="money" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>交费明细</Menu.Item>
-              <Menu.Item key="8" name="my-test" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>参加考试</Menu.Item>
-              <Menu.Item key="9" name="evaluate" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员评价</Menu.Item>
-              <Menu.Item key="10" name="evaluation" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>教学测评</Menu.Item>
-            </Menu.SubMenu>
-            <Menu.SubMenu key="sub2" title={<span><Icon type="contacts" /><span>学员考勤</span></span>}>
-              <Menu.Item key="11" name="studentleave" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员请假</Menu.Item>
-              <Menu.Item key="12" name="schoolviolation" onClick={ ({item,key})=>{ this.changeUrl(item.props.name,key) } }>学员违纪</Menu.Item>
-            </Menu.SubMenu>
+          <Menu theme="dark" mode="inline" forceSubMenuRender={true} defaultOpenKeys={['sub1']}>
+            {
+              this.state.data.map(x=>{
+                return (
+                  <Menu.SubMenu name="学员后台" key={x.key} title={<span><Icon type={x.icon} /><span>{x.content}</span></span>}>
+                    {
+                      x.data.map(y => {
+                        return (
+                          <Menu.Item
+                            key={y.key}
+                            className={a === y.name ? 'ant-menu-item-selected' : ''}
+                            name={y.name}
+                            // onClick={ ({item})=>{ this.changeUrl(item.props.name) } }
+                          ><Link to={`/home/${y.name}`}>{ y.content }</Link></Menu.Item>
+                        )
+                      })
+                    }
+                  </Menu.SubMenu>
+                )
+              })
+            }
           </Menu>
         </Sider>
         <Layout style={ this.state.collapsed ? { marginLeft: 80 } : { marginLeft: 200 } }>
@@ -87,26 +202,28 @@ class Home extends React.Component {
           <Breadcrumb style={{ paddingLeft: 15, marginTop: 10 }}>
             <Breadcrumb.Item>学员后台</Breadcrumb.Item>
             <Breadcrumb.Item>
-              <a href="">{this.props.location.pathname}</a>
+              { this.state.mb[a] }
             </Breadcrumb.Item>
-            <Breadcrumb.Item>An Application</Breadcrumb.Item>
           </Breadcrumb>
+          {/* <Breadcrumb routes={routes} params={params} /> */}
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             <div style={{ padding: 24, background: '#fff'}}>
               <Switch>
-                <Route path="/home/tousu/1" component={ Tousu }></Route>
-                <Route path="/home/jishu/2" component={ Jishu }></Route>
-                <Route path="/home/xiangmu/3" component={ Xiangmu }></Route>
-                <Route path="/home/vip/4" component={ Vip }></Route>
-                <Route path="/home/zhoubao/5" component={ Zhoubao }></Route>
-                <Route path="/home/my/6" component={ My }></Route>
-                <Route path="/home/money/7" component={ Money }></Route>
-                <Route path="/home/my-test/8" component={ MyTest }></Route>
-                <Route path="/home/evaluate/9" component={ Evaluate }></Route>
-                <Route path="/home/evaluation/10" component={ Evaluation }></Route>
-                <Route path="/home/studentleave/11" component={ Studentleave }></Route>
-                <Route path="/home/schoolviolation/12" component={ Schoolviolation }></Route>
-                <Route path="/home/modify/13" component={ Modify }></Route>
+                <Route path="/home/tousu" component={ Tousu }></Route>
+                <Route path="/home/jishu" component={ Jishu }></Route>
+                <Route path="/home/xiangmu" component={ Xiangmu }></Route>
+                <Route path="/home/vip" component={ Vip }></Route>
+                <Route path="/home/zhoubao" component={ Zhoubao }></Route>
+                <Route path="/home/my" component={ My }></Route>
+                <Route path="/home/money" component={ Money }></Route>
+                <Route path="/home/my_test" component={ MyTest }></Route>
+                <Route path="/home/evaluate" component={ Evaluate }></Route>
+                <Route path="/home/evaluation" component={ Evaluation }></Route>
+                <Route path="/home/studentleave" component={ Studentleave }></Route>
+                <Route path="/home/schoolviolation" component={ Schoolviolation }></Route>
+                <Route path="/home/modify" component={ Modify }></Route>
+                <Route path="/home/student" component={ Student }></Route>
+                <Redirect to="/home/my"></Redirect>
               </Switch>
             </div>
           </Content>
@@ -114,8 +231,8 @@ class Home extends React.Component {
       </Layout>
     );
   }
-  changeUrl(pathName,key) {
-    this.props.history.replace(`/home/${pathName}/${key}`)
+  changeUrl(pathName) {
+    this.props.history.replace(`/home/${pathName}`)
   }
 }
 

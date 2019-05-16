@@ -5,8 +5,7 @@ import './index.less';
 const columns = [
   {
     title: '姓名',
-    dataIndex: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    dataIndex: 'name'
   },
   {
     title: '问题理由',

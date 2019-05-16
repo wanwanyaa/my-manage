@@ -45,6 +45,7 @@ class My extends React.Component {
     ];
     const newDate =[
       {
+        key: '1',
         mc:'扣丁学堂',
         main:'扣丁学堂大量免费线上视频，不定期更新，为您规划职业路线。官方网站: http://www.codingke.com',
         open:'您还未开通扣丁学堂'
@@ -86,42 +87,52 @@ class My extends React.Component {
     ]
     const xinxi_v = [
       {
+        key: '1',
         mc : '身份证号码',
         num: 164646
       },
       {
+        key: '2',
         mc : '手机号',
         num: 18878787878
       },
       {
+        key: '3',
         mc : 'QQ',
         num: 16464651,
       },
       {
+        key: '4',
         mc : '学号',
         num: 'SZ181413015'
       },
       {
+        key: '5',
         mc : '毕业学院',
         num: '九江职业技术学院    安卓'
       },
       {
+        key: '6',
         mc : '身份证号码',
         num: '***********************'
       },
       {
+        key: '7',
         mc : '在校状态',
         num: '在读'
       },
       {
+        key: '8',
         mc : '学历',
         num: '专科'
       },
       {
+        key: '9',
         mc : '千锋班级',
         num: '深圳HTML5就业班1814期'
       },
       {
+        key: '10',
         mc : '招生老师',
         num: '刘丽丽'
       },
@@ -143,9 +154,9 @@ class My extends React.Component {
                     <div className="space"></div>
                     <div className="arrowed">
                       <div className="inline">
-                        <a href="#" className="user">
+                        <i  className="user">
                             <span className="white">李威&nbsp;(男)</span>
-                        </a>
+                        </i>
                       </div>
                     </div>
                   </div>
