@@ -15,7 +15,7 @@ const defaultState = fromJS({
   resonobj: {
     key: '1',
     excuseforleave:'',
-    name: '鸡你太美',
+    name: '李威',
     headapproval: '未通过',
     approval: '未通过',
     starttime:'',
